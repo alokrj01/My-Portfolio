@@ -7,7 +7,7 @@
 
 <br>
 
-![screenshot](https://github.com/GregSithole/gregsithole-react-portfolio/raw/master/src/assets/Screenshot.png)
+![screenshot](https://github.com/alokrj01/My-Portfolio/blob/main/src/assets/screenshot.png)
 
 ## How To Use
 
