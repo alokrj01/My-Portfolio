@@ -1,0 +1,7 @@
+<svg width="600" height="600" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Letter A - White - Top half -->
+  <path d="M 150 80 L 105 150 L 125 150 L 133 130 L 167 130 L 175 150 L 195 150 L 150 80 Z M 140 115 L 160 115 L 150 95 Z" fill="white"/>
+  
+  <!-- Letter R - Orange - Bottom half -->
+  <path d="M 105 220 L 105 160 L 160 160 Q 185 160 185 178 Q 185 188 173 193 L 195 220 L 170 220 L 152 195 L 130 195 L 130 220 Z M 130 180 L 158 180 Q 165 180 165 175 Q 165 170 158 170 L 130 170 Z" fill="#FF6B35"/>
+</svg>

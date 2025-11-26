@@ -1,0 +1,7 @@
+<svg width="280" height="280" viewBox="0 0 280 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Letter R - Bold Orange with Modern Curve -->
+  <path d="M 85 190 L 85 140 L 145 140 Q 170 140 170 157 Q 170 167 158 172 L 178 190 L 155 190 L 138 174 L 107 174 L 107 190 Z M 107 158 L 143 158 Q 148 158 148 153 Q 148 148 143 148 L 107 148 Z" fill="#FF6B35"/>
+  
+  <!-- Letter A - White Rounded Geometric -->
+  <path d="M 140 80 L 110 155 L 128 155 L 134 140 L 166 140 L 172 155 L 190 155 L 160 80 Z M 140 125 L 160 125 L 150 100 Z" fill="white" stroke="white" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
+</svg>
