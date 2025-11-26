@@ -3,7 +3,7 @@
   <br>
 </h1>
 
-<!-- <h4 align="center">A simple personal website about <a href="http://gregsithole.com" target="_blank">Alok Ranjan</a>.</h4> -->
+<h4 align="center">A simple personal website about <a href="https://alokranjanportfolio.vercel.app" target="_blank">Alok Ranjan</a>.</h4>
 
 <br>
 
