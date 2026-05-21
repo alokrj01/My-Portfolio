@@ -97,6 +97,7 @@ export default function ProjectManager() {
 
         if (imageError) {
           alert(imageError.message);
+          setLoading(false);
           return;
         }
 
@@ -120,6 +121,7 @@ export default function ProjectManager() {
 
         if (dbError) {
           alert(dbError.message);
+          setLoading(false);
           return;
         }
 
@@ -138,6 +140,7 @@ export default function ProjectManager() {
 
         if (dbError) {
           alert(dbError.message);
+          setLoading(false);
           return;
         }
 

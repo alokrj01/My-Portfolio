@@ -98,7 +98,8 @@ const Certifications = () => {
 
               {/* Button */}
               <a
-                href={selected.link}
+                href={selected.credential_url}
+                target="_blank"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block mt-6 text-center bg-purple-600 hover:bg-purple-700 text-white py-2 rounded-lg transition"

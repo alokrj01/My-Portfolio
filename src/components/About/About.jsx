@@ -62,11 +62,11 @@ const About = () => {
             <span className="text-white font-medium">Backend Developer</span>{" "}
             specializing in the{" "}
             <span className="text-purple-400">
-              Python, FastAPI, PostgreSQl etc.
+              Python, FastAPI, PostgreSQL etc.
             </span>
             , focused on building{" "}
             <span className="text-white">scalable APIs, high-performance</span>{" "}
-            full -stack web applications. I enjoy solving real-world problems
+            full-stack web applications. I enjoy solving real-world problems
             with clean architecture, responsive UI, and efficient backend
             systems.
           </p>

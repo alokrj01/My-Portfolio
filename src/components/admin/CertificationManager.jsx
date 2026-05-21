@@ -34,13 +34,13 @@ export default function CertificationManager() {
 
       if (imageError) {
         alert(imageError.message);
+        setLoading(false);
         return;
       }
 
       const imageUrl =
         `${import.meta.env.VITE_SUPABASE_URL}` +
         `/storage/v1/object/public/certification-images/${fileName}`;
-
       const { error: dbError } = await supabase.from("certifications").insert([
         {
           title,
@@ -53,6 +53,7 @@ export default function CertificationManager() {
 
       if (dbError) {
         alert(dbError.message);
+        setLoading(false);
         return;
       }
 
