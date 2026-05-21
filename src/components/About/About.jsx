@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { TypeAnimation } from "react-type-animation";
 import Tilt from "react-parallax-tilt";
 import profileImage from "../../assets/img.png";
@@ -6,11 +6,9 @@ import profileImage from "../../assets/img.png";
 const About = () => {
   const [isMobile, setIsMobile] = useState(false);
 
-   const resumeUrl = React.useMemo(
-    () => `https://pjnqjxlhqkblvgnixonc.supabase.co/storage/v1/object/public/resume/resume.pdf?v=${Date.now()}`,
-    []
-   );
+  const resumeUrl = `${import.meta.env.VITE_SUPABASE_URL}/storage/v1/object/public/resume/resume.pdf`;
 
+  //Responsive Check
   useEffect(() => {
     const check = () => setIsMobile(window.innerWidth < 768);
     check();
@@ -24,10 +22,8 @@ const About = () => {
       className="py-12 px-5 sm:px-[7vw] lg:px-[20vw] font-sans mt-16 md:mt-24 lg:mt-28"
     >
       <div className="flex flex-col-reverse md:flex-row items-center gap-12 md:gap-16">
-        
         {/* LEFT */}
         <div className="w-full md:w-1/2 text-center md:text-left">
-          
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white">
             Hi, I’m
           </h1>
@@ -45,9 +41,9 @@ const About = () => {
                 2000,
                 "Modern Fullstack Solutions",
                 2000,
-                "MERN Stack Projects",
+                "Scalable APIs",
                 2000,
-                "Data-driven Applications",
+                "AI-powered Applications",
                 2000,
                 "Clean & Efficient Code",
                 2000,
@@ -62,11 +58,17 @@ const About = () => {
 
           {/* Description */}
           <p className="text-gray-400 mt-6 text-sm sm:text-base leading-relaxed max-w-xl mx-auto md:mx-0">
-            I am a <span className="text-white font-medium">Fullstack Developer</span> 
-            specializing in the <span className="text-purple-400">MERN stack</span>, 
-            focused on building <span className="text-white">scalable, high-performance</span>{" "}
-            web applications. I enjoy solving real-world problems with clean architecture, 
-            responsive UI, and efficient backend systems.
+            I am a{" "}
+            <span className="text-white font-medium">Backend Developer</span>{" "}
+            specializing in the{" "}
+            <span className="text-purple-400">
+              Python, FastAPI, PostgreSQl etc.
+            </span>
+            , focused on building{" "}
+            <span className="text-white">scalable APIs, high-performance</span>{" "}
+            full -stack web applications. I enjoy solving real-world problems
+            with clean architecture, responsive UI, and efficient backend
+            systems.
           </p>
 
           {/* CTA */}

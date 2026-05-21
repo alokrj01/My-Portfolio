@@ -1,8 +1,32 @@
-import React, { useState } from "react";
-import { certifications } from "../../constants";
+import React, { useState, useEffect } from "react";
+//import { certifications } from "../../constants";
+import { supabase } from "../../lib/supabase";
 
 const Certifications = () => {
+  const [certifications, setCertifications] = useState([]);
   const [selected, setSelected] = useState(null);
+
+  const fetchCertifications = async () => {
+    const { data, error } = await supabase
+      .from("certifications")
+      .select("*")
+      .order("created_at", { ascending: false });
+
+    if (error) {
+      console.log(error);
+      return;
+    }
+
+    setCertifications(data);
+  };
+
+  useEffect(() => {
+    const loadCertifications = async () => {
+      await fetchCertifications();
+    };
+
+    loadCertifications();
+  }, []);
 
   return (
     <section
@@ -35,25 +59,11 @@ const Certifications = () => {
             </div>
 
             <div className="p-5">
-              <h3 className="text-lg font-semibold text-white">
-                {cert.title}
-              </h3>
+              <h3 className="text-lg font-semibold text-white">{cert.title}</h3>
 
               <p className="text-gray-400 text-sm mt-1">
-                {cert.issuer} • {cert.date}
+                {cert.issuer} • {cert.issue_date}
               </p>
-
-              {/* Tags */}
-              <div className="flex flex-wrap gap-2 mt-3">
-                {cert.tags?.map((tag, i) => (
-                  <span
-                    key={i}
-                    className="text-xs px-2 py-1 bg-purple-600/20 text-purple-400 rounded-md"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
             </div>
           </div>
         ))}
@@ -83,20 +93,8 @@ const Certifications = () => {
               </h3>
 
               <p className="text-gray-400 mt-2">
-                {selected.issuer} • {selected.date}
+                {selected.issuer} • {selected.issue_date}
               </p>
-
-              {/* Tags */}
-              <div className="flex flex-wrap gap-2 mt-4">
-                {selected.tags?.map((tag, i) => (
-                  <span
-                    key={i}
-                    className="text-xs px-2 py-1 bg-purple-600/20 text-purple-400 rounded-md"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
 
               {/* Button */}
               <a
