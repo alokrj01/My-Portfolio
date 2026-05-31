@@ -30,7 +30,7 @@ import mcLogo from "./assets/tech_logo/mc.png";
 import figmaLogo from "./assets/tech_logo/figma.png";
 import netlifyLogo from "./assets/tech_logo/netlify.png";
 import vercelLogo from "./assets/tech_logo/vercel.png";
-// import postgreLogo from './assets/tech_logo/postgre.png';
+import postgreLogo from "./assets/tech_logo/postgre.png";
 // import csharpLogo from './assets/tech_logo/csharp.png';
 
 export const SkillsInfo = [
@@ -60,7 +60,7 @@ export const SkillsInfo = [
       { name: "MySQL", logo: mysqlLogo },
       { name: "MongoDB", logo: mongodbLogo },
       { name: "Firebase", logo: firebaseLogo },
-      // { name: 'PostgreSQL', logo: postgreLogo },
+      { name: "PostgreSQL", logo: postgreLogo },
     ],
   },
   {

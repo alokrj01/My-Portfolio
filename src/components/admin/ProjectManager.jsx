@@ -106,8 +106,12 @@ export default function ProjectManager() {
           `/storage/v1/object/public/project-images/${fileName}`;
       }
 
+      console.log("Editing ID:", editingId);
+      console.log("Selected Image:", image);
+      console.log("Image URL:", imageUrl);
+
       if (editingId) {
-        const { error: dbError } = await supabase
+        const { data, error: dbError } = await supabase
           .from("projects")
           .update({
             title,
@@ -117,7 +121,11 @@ export default function ProjectManager() {
             live,
             ...(image && { image: imageUrl }),
           })
-          .eq("id", editingId);
+          .eq("id", editingId)
+          .select();
+
+        console.log("UPDATE DATA:", data);
+        console.log("UPDATE ERROR:", dbError);
 
         if (dbError) {
           alert(dbError.message);
@@ -269,7 +277,10 @@ export default function ProjectManager() {
             Project Image
           </label>
 
-          <label className="flex cursor-pointer flex-col items-center justify-center gap-4 rounded-3xl border border-dashed border-white/15 bg-white/[0.03] px-6 py-10 transition-all duration-300 hover:border-purple-400/40 hover:bg-white/[0.05]">
+          <label
+            //htmlFor="project-image"
+            className="flex cursor-pointer flex-col items-center justify-center gap-4 rounded-3xl border border-dashed border-white/15 bg-white/[0.03] px-6 py-10 transition-all duration-300 hover:border-purple-400/40 hover:bg-white/[0.05]"
+          >
             <div className="rounded-full bg-purple-500/10 p-4 text-purple-400">
               <Upload size={24} />
             </div>
@@ -288,6 +299,10 @@ export default function ProjectManager() {
                 </div>
               )}
 
+              <p className="mt-2 text-white text-sm">
+                {image ? image.name : "No image selected"}
+              </p>
+
               {originalImage && !image && (
                 <p className="mt-3 text-sm text-zinc-500">
                   Existing image will be kept
@@ -298,7 +313,10 @@ export default function ProjectManager() {
             <input
               type="file"
               accept="image/*"
-              onChange={(e) => setImage(e.target.files[0])}
+              onChange={(e) => {
+                //console.log("FILE:", e.target.files[0]);
+                setImage(e.target.files[0]);
+              }}
               className="hidden"
             />
           </label>
