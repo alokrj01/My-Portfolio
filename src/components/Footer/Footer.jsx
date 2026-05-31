@@ -93,7 +93,7 @@ const Footer = () => {
 
             <p className="text-gray-400 mt-4 max-w-sm">
               FullStack Developer focused on scalable web applications, clean
-              architecture and modern user experiencs.
+              architecture and modern user experiences.
             </p>
 
             {/* Social Icons */}
