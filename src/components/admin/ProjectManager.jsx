@@ -106,12 +106,12 @@ export default function ProjectManager() {
           `/storage/v1/object/public/project-images/${fileName}`;
       }
 
-      console.log("Editing ID:", editingId);
-      console.log("Selected Image:", image);
-      console.log("Image URL:", imageUrl);
+      //console.log("Editing ID:", editingId);
+      //console.log("Selected Image:", image);
+      //console.log("Image URL:", imageUrl);
 
       if (editingId) {
-        const { data, error: dbError } = await supabase
+        const { error: dbError } = await supabase
           .from("projects")
           .update({
             title,
@@ -124,8 +124,8 @@ export default function ProjectManager() {
           .eq("id", editingId)
           .select();
 
-        console.log("UPDATE DATA:", data);
-        console.log("UPDATE ERROR:", dbError);
+        //console.log("UPDATE DATA:", data);
+        //console.log("UPDATE ERROR:", dbError);
 
         if (dbError) {
           alert(dbError.message);
