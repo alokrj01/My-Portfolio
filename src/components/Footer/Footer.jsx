@@ -58,6 +58,7 @@ const Footer = () => {
     { name: "Projects", id: "projects" },
     { name: "Education", id: "education" },
     { name: "Certifications", id: "certifications" },
+    { name: "Insights", id: "admin" },
   ];
 
   const socials = [
@@ -78,46 +79,71 @@ const Footer = () => {
         border-t border-white/10 bg-gradient-to-b from-transparent to-black/40"
       >
         {/* Content */}
-        <div className="text-center">
+        <div className="grid md:grid-cols-2 gap-10">
+          {/* Left Section */}
           {/* Logo */}
-          <h2 className="text-2xl font-bold text-purple-500">Alok Ranjan</h2>
+          <div>
+            <h2 className="text-3xl font-bold">
+              <span className="text-purple-500">&lt;</span>
+              Alok
+              <span className="text-purple-500">/</span>
+              Ranjan
+              <span className="text-purple-500">&gt;</span>
+            </h2>
 
-          {/* Navigation */}
-          <nav className="flex flex-wrap justify-center gap-4 sm:gap-6 mt-6 text-sm sm:text-base">
-            {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => handleScroll(item.id)}
-                className="text-gray-400 hover:text-purple-400 transition"
-              >
-                {item.name}
-              </button>
-            ))}
-          </nav>
+            <p className="text-gray-400 mt-4 max-w-sm">
+              FullStack Developer focused on scalable web applications, clean
+              architecture and modern user experiencs.
+            </p>
 
-          {/* Social Icons */}
-          <div className="flex justify-center gap-5 mt-6 text-xl">
-            {socials.map((item, i) => (
-              <a
-                key={i}
-                href={item.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-purple-400 transition transform hover:scale-110"
-              >
-                {item.icon}
-              </a>
-            ))}
+            {/* Social Icons */}
+            <div className="flex gap-5 mt-6 text-xl">
+              {socials.map((item, i) => (
+                <a
+                  key={i}
+                  href={item.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-purple-400 transition transform hover:scale-110"
+                >
+                  {item.icon}
+                </a>
+              ))}
+            </div>
           </div>
 
-          {/* Divider */}
-          <div className="w-full h-[1px] bg-white/10 mt-8"></div>
-
-          {/* Copyright */}
-          <p className="text-sm text-gray-500 mt-4">
-            © {new Date().getFullYear()} Alok Ranjan. All rights reserved.
-          </p>
+          {/* Right Section */}
+          <div className="flex flex-col md:items-end gap-4">
+            {navItems.map((item) =>
+              item.id === "admin" ? (
+                <button
+                  key={item.id}
+                  onClick={() => (window.location.href = "/admin")}
+                  className=" text-gray-400 hover:text-purple-400 transition "
+                >
+                  {item.name}
+                </button>
+              ) : (
+                <button
+                  key={item.id}
+                  onClick={() => handleScroll(item.id)}
+                  className=" text-gray-400 hover:text-purple-400 transition "
+                >
+                  {item.name}
+                </button>
+              )
+            )}
+          </div>
         </div>
+
+        {/* Divider */}
+        <div className="w-full h-[1px] bg-white/10 mt-8"></div>
+
+        {/* Copyright */}
+        <p className="text-sm text-center text-gray-500 mt-4">
+          Copyright© {new Date().getFullYear()} Alok Ranjan. All rights
+          reserved.
+        </p>
       </footer>
 
       {/* Scroll To Top Button */}
