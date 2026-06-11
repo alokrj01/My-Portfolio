@@ -64,7 +64,7 @@ const Projects = () => {
 
       {/* Grid */}
       {featuredProject && (
-        <div className=" group mb-16 overflow-hidden rounded-3xl border border-purple-500/30 bg-white/5 backdrop-blur-md shadow-lg cursor-pointer transition duration-300 hover:-translate-y-2 hover:shadow-purple-500/40">
+        <div className="relative group mb-16 overflow-hidden rounded-3xl border border-purple-500/30 bg-white/5 backdrop-blur-md shadow-lg cursor-pointer transition duration-300 hover:-translate-y-2 hover:shadow-purple-500/40">
           <div className="grid grid-cols-1 lg:grid-cols-2">
             {/* Left - Image */}
             <div className="p-4">
