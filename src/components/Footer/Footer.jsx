@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram } from "react-icons/fa";
+import { FaFacebook, FaTwitter, FaLinkedin, FaTelegram } from "react-icons/fa";
 import { SiLeetcode } from "react-icons/si";
 import { RiArrowUpLine } from "react-icons/ri";
 
@@ -68,7 +68,7 @@ const Footer = () => {
       icon: <FaLinkedin />,
       link: "https://www.linkedin.com/in/alok-ranjan972",
     },
-    { icon: <FaInstagram />, link: "https://www.instagram.com/alokrj_" },
+    { icon: <FaTelegram />, link: "https://t.me/alokrj01" },
     { icon: <SiLeetcode />, link: "https://leetcode.com/" },
   ];
 

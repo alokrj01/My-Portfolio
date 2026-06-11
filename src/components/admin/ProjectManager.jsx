@@ -20,6 +20,7 @@ export default function ProjectManager() {
   const [github, setGithub] = useState("");
   const [live, setLive] = useState("");
   const [image, setImage] = useState(null);
+  const [featured, setFeatured] = useState(false);
 
   const [loading, setLoading] = useState(false);
   const [projects, setProjects] = useState([]);
@@ -57,6 +58,8 @@ export default function ProjectManager() {
 
     setOriginalImage(project.image);
     setImage(null);
+
+    setFeatured(project.featured || false);
   };
 
   const handleCancel = () => {
@@ -70,6 +73,7 @@ export default function ProjectManager() {
 
     setImage(null);
     setOriginalImage(null);
+    setFeatured(false);
   };
 
   const handleAddProject = async () => {
@@ -120,6 +124,7 @@ export default function ProjectManager() {
             github,
             live,
             ...(image && { image: imageUrl }),
+            featured,
           })
           .eq("id", editingId)
           .select();
@@ -143,6 +148,7 @@ export default function ProjectManager() {
             github,
             live,
             image: imageUrl,
+            featured,
           },
         ]);
 
@@ -185,6 +191,15 @@ export default function ProjectManager() {
 
       {/* Form */}
       <div className="space-y-5">
+        <label className="flex items-center gap-2">
+          <input
+            type="checkbox"
+            checked={featured}
+            onChange={(e) => setFeatured(e.target.checked)}
+          />
+          Featured Project
+        </label>
+
         {/* Title */}
         <div>
           <label className="mb-2 block text-sm font-medium text-zinc-300">
@@ -382,6 +397,12 @@ export default function ProjectManager() {
                     alt={project.title}
                     className="mb-4 h-44 w-full rounded-2xl object-cover"
                   />
+                )}
+
+                {project.featured && (
+                  <span className="mb-2 inline-block rounded-full bg-yellow-500/20 px-3 py-1 text-xs font-semibold text-yellow-400">
+                    ⭐ Featured
+                  </span>
                 )}
 
                 <h3 className="text-lg font-bold text-white">

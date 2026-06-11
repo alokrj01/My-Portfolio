@@ -3,6 +3,9 @@ import { supabase } from "../../lib/supabase";
 
 const Projects = () => {
   const [projects, setProjects] = useState([]);
+  const featuredProject = projects.find((project) => project.featured);
+
+  const regularProjects = projects.filter((project) => !project.featured);
   const [selectedProject, setSelectedProject] = useState(null);
 
   const fetchProjects = async () => {
@@ -10,7 +13,6 @@ const Projects = () => {
       .from("projects")
       .select("*")
       .order("created_at", { ascending: false });
-
 
     if (error) {
       console.log(error);
@@ -61,9 +63,82 @@ const Projects = () => {
       </div>
 
       {/* Grid */}
-      <div className="grid gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      {featuredProject && (
+        <div className=" group mb-16 overflow-hidden rounded-3xl border border-purple-500/30 bg-white/5 backdrop-blur-md shadow-lg cursor-pointer transition duration-300 hover:-translate-y-2 hover:shadow-purple-500/40">
+          <div className="grid grid-cols-1 lg:grid-cols-2">
+            {/* Left - Image */}
+            <div className="p-4">
+              <img
+                src={featuredProject.image}
+                alt={featuredProject.title}
+                loading="lazy"
+                className="h-48 min-h-full w-full rounded-xl object-cover transition-transform duration-500 group-hover:scale-105"
+              />
 
-        {projects?.map((project) => (
+              <div className="absolute left-4 top-4">
+                <span className="rounded-full bg-gradient-to-r from-purple-600 to-pink-500 px-4 py-2 text-sm font-semibold text-white shadow-lg">
+                  ⭐ Featured Project
+                </span>
+              </div>
+            </div>
+
+            {/* Right - Content */}
+            <div className="flex flex-col justify-center p-6 lg:p-10">
+              <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
+                {featuredProject.title}
+              </h2>
+
+              <p className="text-gray-300 leading-relaxed mb-6 line-clamp-4">
+                {featuredProject.description}
+              </p>
+
+              {/* Tech Stack */}
+              <div className="flex flex-wrap gap-2 mb-8">
+                {featuredProject.techstack
+                  ?.split(",")
+                  .map((tag) => tag.trim())
+                  .filter(Boolean)
+                  .map((tag, i) => (
+                    <span
+                      key={`${tag}-${i}`}
+                      className="bg-purple-600/20 text-purple-400 text-xs px-3 py-1 rounded-md border border-purple-500/20"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+              </div>
+
+              {/* Buttons */}
+              <div className="flex flex-wrap gap-4">
+                {featuredProject.github && (
+                  <a
+                    href={featuredProject.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-gray-800 hover:bg-purple-700 text-gray-300 px-6 py-3 rounded-lg font-semibold transition"
+                  >
+                    View Code
+                  </a>
+                )}
+
+                {featuredProject.live && (
+                  <a
+                    href={featuredProject.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-purple-600 hover:bg-purple-800 text-white px-6 py-3 rounded-lg font-semibold transition"
+                  >
+                    Live Demo
+                  </a>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      <div className="grid gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        {regularProjects?.map((project) => (
           <div
             key={project.id}
             onClick={() => setSelectedProject(project)}
@@ -100,16 +175,17 @@ const Projects = () => {
               {/* Tags */}
               <div className="flex flex-wrap gap-2 mt-4">
                 {project.techstack
-                ?.split(",")
-                .map((tag) => tag.trim())
-                .filter(Boolean).map((tag, i) => (
-                  <span
-                    key={`${tag}-${i}`}
-                    className="bg-purple-600/20 text-purple-400 text-xs px-2 py-1 rounded-md border border-purple-500/20"
-                  >
-                    {tag}
-                  </span>
-                ))}
+                  ?.split(",")
+                  .map((tag) => tag.trim())
+                  .filter(Boolean)
+                  .map((tag, i) => (
+                    <span
+                      key={`${tag}-${i}`}
+                      className="bg-purple-600/20 text-purple-400 text-xs px-2 py-1 rounded-md border border-purple-500/20"
+                    >
+                      {tag}
+                    </span>
+                  ))}
               </div>
             </div>
           </div>
