@@ -93,11 +93,28 @@ export const SkillsInfo = [
 // Experience Section Logo's
 import Logo2 from "./assets/company_logo/logo2.webp";
 import Logo1 from "./assets/company_logo/logo1.avif";
-// import newtonschoolLogo from './assets/company_logo/newtonschool_logo.png';
+import freelanceLogo from "./assets/company_logo/freelancer.png";
 
 export const experiences = [
   {
     id: 0,
+    img: freelanceLogo,
+    role: "Freelance Frontend Developer",
+    company: "Self-Employed",
+    date: "January 2026 - Present",
+    desc: "Working as a Frontend Developer, Built and deployed a fully responsive UI on Vercel featuring animated carousel, image masking effects, and Glassmorphism design, attaining 83/100 Accessibility score with near-zero layout shift (CLS: 0.007)",
+    skills: [
+      "React",
+      "Vite",
+      "Tailwind CSS",
+      "ScrollTrigger",
+      "SplitText reveals",
+      "Parallax scrolling",
+      "Scroll-synced video playback",
+    ],
+  },
+  {
+    id: 1,
     img: Logo2,
     role: "Artificial Intelligence Intern",
     company: "Infosys Springboard (Remote)",
@@ -118,7 +135,7 @@ export const experiences = [
     ],
   },
   {
-    id: 1,
+    id: 2,
     img: Logo1,
     role: "Data Science & Analytics Intern",
     company: "Zidio Development Pvt. Ltd.",
@@ -136,22 +153,6 @@ export const experiences = [
       "Tableau",
     ],
   },
-  // {
-  //   id: 2,
-  //   img: newtonschoolLogo,
-  //   role: "Frontend Intern",
-  //   company: "Newton School",
-  //   date: "September 2021 - August 2022",
-  //   desc: "Worked as a Frontend Developer Intern, designing and implementing scalable UI components and responsive websites using HTML, CSS, JavaScript, Bootstrap, and Material UI. Collaborated with the design team to translate wireframes and prototypes from Figma into interactive, user-friendly web pages.",
-  //   skills: [
-  //     "HTML",
-  //     "CSS",
-  //     "Javascript",
-  //     "Bootstrap",
-  //     "Figma",
-  //     "Material UI",
-  //   ],
-  // },
 ];
 
 // Education Section Logo's
